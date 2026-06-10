@@ -1,0 +1,14 @@
+class Solution {
+    public int strStr(String haystack, String needle) {
+        int hs = haystack.length();
+        int ne = needle.length();
+        if(hs < ne) return -1;
+        // looping through haystack string to check for needle as a substring
+         for(int i=0; i<= hs-ne; i++){
+            if(haystack.substring(i,i+ne).equals(needle)){
+                return i;
+            }
+        }
+        return -1;
+    }
+}
