@@ -1,0 +1,84 @@
+package OOP;
+interface LibraryUser{
+    void registerAccount();
+    void requestBook();
+}
+class kidUser implements LibraryUser{
+    int age;
+    String BookType;
+
+    public void registerAccount(){
+        if(age < 12){
+            System.out.println("YOU HAVE SUCCESSFULLY REGISTERED UNDER A KIDS ACCOUNT")
+        }
+        else{
+            System.out.println("Sorry, age must be less than 12 to register as a kid");
+
+        }
+        public void requestBook(){
+            if(BookType.equalsIgnoreCase("kids")){
+                System.out.println("Book issued successfully, please return the book within 10 days");
+            }
+            else{
+                System.out.println("Oops, you are allowed to take only kids book");
+            }
+        }
+    }
+    
+}
+
+class AdultUser implements LibraryUser{
+    int age;
+    String BookType;
+    
+    public void registerAccount(){
+        if(age > 12){
+            System.out.println("YOU HAVE SUCCESSFULLY REGISTERED UNDER AN ADULT ACCOUNT");
+        }
+        else{
+            System.out.println("Sorry, age must be greater than 12 to register as an adult");
+
+        }
+
+    }
+    public void requestBook(){
+        if(BookType.equalsIgnorCase("Fiction")){
+            System.out.println("Book issued successfully, please return the book within 7 days");
+
+        }
+        
+        else{
+            System.out.println("Oops, you are allowed to take only adult fiction books");
+        }
+    }
+}
+public class LibraryInterfaceDemo{
+    public static void main(String[] args){
+        // Test Case 1
+        KidUser kid = new KidUser();
+        kid.age = 10;
+        kid.BookType = "kids";
+        kid.registerAccount();
+        kid.requestBook();
+
+        kid.age = 18;
+        kid.BookType = "Fiction";
+        kid.RegisterAccount();
+        kid.requestBook();
+
+        // Test Case 2
+
+        AdultUser adult = new AdultUser();
+        adult.age = 5;
+        adult.BookType = "kids";
+        adult.registerAccount();
+        adult.requestBook();
+
+
+        adult.age = 23;
+        adult.BookType = "Fiction";
+        adult.registerAccount();
+        adult.requestBook();
+
+    }
+}
